@@ -1,0 +1,25 @@
+{
+  "name": "external_profile",
+  "version": "1.0.3",
+  "description": "Module, intended to parse profile from external sources like facebook, google and instagram and return json with all info collected",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "facebook",
+    "google",
+    "instagram",
+    "profile",
+    "external",
+    "profile"
+  ],
+  "author": "ankys_labracode",
+  "license": "ISC",
+  "dependencies": {
+    "crypto": "0.0.3",
+    "request": "^2.81.0",
+    "winston": "^2.3.1",
+    "winston-error": "^1.0.1"
+  }
+}
