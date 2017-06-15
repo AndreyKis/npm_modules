@@ -1,0 +1,17 @@
+{
+  "name": "stripe-interaction",
+  "version": "1.0.0",
+  "description": "Module, intended to work with stripe. Includes card token generation, token-based customer and account generation, customer and account deleting",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "stripe",
+    "account",
+    "customer",
+    "card"
+  ],
+  "author": "ankys",
+  "license": "ISC"
+}
