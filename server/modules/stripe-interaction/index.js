@@ -1,11 +1,9 @@
 /**
  * Created by User on 6/16/2017.
  */
-module.exports = (stripeKey) => {
-  const async = require('asyncawait/async');
-  const await = require('asyncawait/await');
 
-  const errorLogger = require('winston-logger-wrapper');
+module.exports = (stripeKey) => {
+  const winstonLoggerWrapper = require('winston-logger-wrapper');
   const stripe = require('stripe')(stripeKey);
 
   const constants = require('./constants');
@@ -43,7 +41,7 @@ module.exports = (stripeKey) => {
           cb ? cb(null, tokens) : resolve(tokens);
         })
         .catch((err) => {
-          errorLogger.error(err);
+          winstonLoggerWrapper.errorLogger.error(err);
           cb ? cb(err) : reject(err);
         });
     });
@@ -72,14 +70,14 @@ module.exports = (stripeKey) => {
 
       let result = {};
       stripe.customers.create({
-        source: customerToken
+        source: customerToken.id
       })
         .then((customer) => {
           result.createdCustomer = customer;
           return stripe.accounts.create({
             country: constants.country,
             type: "custom",
-            external_account: accountToken
+            external_account: accountToken.id
           });
         })
         .then((stripeAccount) => {
@@ -87,7 +85,7 @@ module.exports = (stripeKey) => {
           cb ? cb(null, result) : resolve(result);
         })
         .catch((err) => {
-          errorLogger.error(err);
+          winstonLoggerWrapper.errorLogger.error(err);
           cb ? cb(err) : reject(err);
         });
     })

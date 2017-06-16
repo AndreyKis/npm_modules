@@ -12,14 +12,28 @@ app.use('/external/test', (req, res, next) => {
       console.log(profile);
     })
     .catch((err) => {
-      winstonLoggerWrapper.infoLogger.info(err);
+      console.err(err);
     })
+});
+
+app.use('/winston/test', (req, res, next) => {
+  winstonLoggerWrapper.errorLogger.error(new Error("Test error"));
+  winstonLoggerWrapper.infoLogger.info(new Error("Test info"));
 });
 
 app.use('/stripe/test', (req, res, next) => {
   stripe.generateTwoTokens()
-    .then((profile) => {
-      console.log(profile);
+    .then((tokens) => {
+      return stripe.addPaymentMethod({customerStripeToken: tokens[0], accountStripeToken: tokens[1]});
+    })
+    .then((stripeUserInfo) => {
+      return stripe.editCard({
+        customerId: stripeUserInfo.createdCustomer.id,
+        accountId: stripeUserInfo.createdAccount.id
+      });
+    })
+    .then((editedCard) => {
+      console.log(editedCard);
     })
     .catch((err) => {
       winstonLoggerWrapper.errorLogger.error(err);

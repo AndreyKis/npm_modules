@@ -1,6 +1,6 @@
 {
   "name": "external-profile",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "Module, intended to parse profile from external sources like facebook, google and instagram and return json with all info collected",
   "main": "index.js",
   "scripts": {
