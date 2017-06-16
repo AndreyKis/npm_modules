@@ -16,7 +16,7 @@ run
 ## Usage
 
 ```javascript
-const winstonLoggerWrapper = require('./modules/winston-logger-wrapper');
+const winstonLoggerWrapper = require('winston-logger-wrapper');
 const someFunctionReturningPromise = () => new Promise((resolve, reject) => {
     // Some actions;
     resolve();

@@ -1,6 +1,6 @@
 {
   "name": "winston-logger-wrapper",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "The wrapper around winston logger, preconfigured for use",
   "main": "index.js",
   "scripts": {
