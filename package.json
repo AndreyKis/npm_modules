@@ -18,7 +18,9 @@
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^4.0.0",
     "serve-favicon": "^2.0.1",
-    "strong-error-handler": "^2.0.0"
+    "stripe-interaction": "^1.0.0",
+    "strong-error-handler": "^2.0.0",
+    "winston-logger-wrapper": "^1.0.0"
   },
   "devDependencies": {
     "nsp": "^2.1.0"

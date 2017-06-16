@@ -1,0 +1,21 @@
+{
+  "name": "winston-logger-wrapper",
+  "version": "1.0.3",
+  "description": "The wrapper around winston logger, preconfigured for use",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "logger",
+    "wrapper"
+  ],
+  "author": "ankys",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "fs": "0.0.1-security",
+    "winston": "^2.3.1",
+    "winston-error": "^1.0.1"
+  }
+}

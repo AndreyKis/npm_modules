@@ -1,26 +1,33 @@
 const loopback = require('loopback');
 const boot = require('loopback-boot');
-const externalProfile = require('./modules/external_profile');
+const externalProfile = require('./modules/external-profile');
+const stripe = require('./modules/stripe-interaction')('sk_test_u695NpdETpOy0TkDhex7ujib');
+const winstonLoggerWrapper = require('./modules/winston-logger-wrapper');
 
 const app = module.exports = loopback();
 
-app.use('/test', (req, res, next) => {
-  externalProfile.getProfileByToken("4765739641.1677ed0.542d7428ed5d4d39a7a6300d11443680", 'instagram', (err, result) => {
-    console.log("hello From then");
-    next();
-  });
-  // profile.then((profileRes) => {
-  //   console.log("hello From then");
-  //   next();
-  // })
+app.use('/external/test', (req, res, next) => {
+  externalProfile.getProfileByToken("4765739641.1677ed0.542d7428ed5d4d39a7a6300d11443680dfdfdf", 'instagram')
+    .then((profile) => {
+      console.log(profile);
+    })
+    .catch((err) => {
+      winstonLoggerWrapper.infoLogger.info(err);
+    })
+});
+
+app.use('/stripe/test', (req, res, next) => {
+  stripe.generateTwoTokens()
+    .then((profile) => {
+      console.log(profile);
+    })
+    .catch((err) => {
+      winstonLoggerWrapper.errorLogger.error(err);
+    })
 });
 
 app.use('/index', (req, res, next) => {
   next();
-  // profile.then((profileRes) => {
-  //   console.log("hello From then");
-  //   next();
-  // })
 });
 
 app.start = function () {

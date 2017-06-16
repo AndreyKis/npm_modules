@@ -1,5 +1,5 @@
 {
-  "name": "external_profile",
+  "name": "external-profile",
   "version": "1.0.3",
   "description": "Module, intended to parse profile from external sources like facebook, google and instagram and return json with all info collected",
   "main": "index.js",
@@ -14,7 +14,7 @@
     "external",
     "profile"
   ],
-  "author": "ankys_labracode",
+  "author": "ankys",
   "license": "ISC",
   "dependencies": {
     "crypto": "0.0.3",

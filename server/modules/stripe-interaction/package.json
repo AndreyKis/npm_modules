@@ -13,5 +13,9 @@
     "card"
   ],
   "author": "ankys",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "stripe": "^4.22.0",
+    "winston-logger-wrapper": "^1.0.0"
+  }
 }

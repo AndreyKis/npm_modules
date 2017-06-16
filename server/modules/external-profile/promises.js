@@ -34,6 +34,9 @@ const socialRequestPromise = function(token, externalType) {
       if (body.error && body.error.message) {
         reject(body.error);
       }
+      if(body.meta && body.meta.error_message) {
+        reject({code: body.meta.code, message: body.meta.error_message});
+      }
 
       resolve(profileUtils.profileToUser(body, externalType));
     });
